@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>vue入门</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+  <div id="root">
+    <div v-bind:title="title">{{content}}</div>
+    <input v-model="vcontent" />
+    <div>{{vcontent}}</div>
+    姓：<input v-model="firstName" /> 名：<input v-model="lastName" />
+    <div>{{fullName}}</div>
+    <div v-if="show">{{count}}</div>
+    <button @click="handleClick">toggon</button>
+    <ul>
+      <li v-for="(item, index) of list" :key="index">
+        {{item}}
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    new Vue({
+      el: "#root",
+      data: {
+        content: "hello world",
+        title: "I'm hello world",
+        vcontent: "I'm v-model",
+        firstName: '',
+        lastName: '',
+        count: 0,
+        show:true,
+        list:[1,2,3]
+      },
+      methods: {
+        handleClick: function() {
+          this.show=!this.show;
+        }
+      },
+      computed: {
+        fullName: function() {
+          return this.firstName + ' ' + this.lastName;
+        }
+      },
+      watch: {
+        fullName: function() {
+          this.count++;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+.container {
+    width: 938px;
+    height: 128px;
+    margin: 0 auto;
+    border: 1px solid #cccccc;
+}
+
+.container li{
+    width: 156px;
+    height: 128px;
+    float: left;
+    overflow: hidden;
+}
+
+.container li a{
+    width: 156px;
+    height: 128px;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.container li img{
+    height: 72px;
+    width: 117px;
+    position: absolute;
+    bottom: 0;
+    right: -15px;
+}
+
+.description {
+    width: 136px;
+    padding: 4px 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.description h3{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.description p{
+    color:#868686;
+    font-size: 12px;
+    height: 22px;
+    width: 136px;
+    overflow: hidden;
+    line-height: 22px;
+}
+
+.description .price {
+    font-size: 14px;
+    font-style: italic;
+    color: #fa2a5d;
+    height: 35px;
+}
+
+.container .line{
+    position: absolute;
+    right: 0;
+    width: 0;
+    border: 1px dashed #cacaca;
+    height: 128px;
+}
+
+.container .mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 128px;
+    width: 156px;
+    background-color: #000;
+    opacity: 0;
+}
+
+.container:hover .mask {
+    opacity: 0.15;
+}
+
+
+/* 以下是变大之后的 */
+
+.container li.big, li.big a{
+    width: 314px;
+    height: 128px;
+}
+
+.container li.big img {
+    width: 195px;
+    height: 120px;
+    right: 0;
+    bottom: 0;
+}
+
+.container li.big .description {
+    width: 290px;
+}
+
+.container li.big h3 {
+    font-size: 18px;
+}
+
+.container li.big .description p {
+    font-size: 14px;
+    width: 166px;
+}
+
+.container li.big p.price {
+    font-size: 16px;
+    padding-top: 7px;
+}
+
+.container li.big a:hover .mask{
+    opacity: 0;
+}
+.container li:hover{
+    width: 312px;
+}

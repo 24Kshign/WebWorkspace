@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>图片展开</title>
+  <link href="css/test.css" rel="stylesheet" />
+  <link href="css/reset.css" rel="stylesheet" />
+  <script>
+    window.onload = function() {
+
+      var box = document.getElementById('root');
+      var imgs = box.getElementsByTagName('img');
+
+      var imageWidth = imgs[0].offsetWidth;
+      var exposeWidth = 160;
+      var boxWidth = imageWidth + exposeWidth * 3;
+      box.style.width = boxWidth + 'px';
+
+      function setImagePos() {
+        for (var i = 1; i < imgs.length; i++) {
+          imgs[i].style.left = imageWidth + exposeWidth * (i - 1) + 'px';
+        }
+      }
+
+      setImagePos();
+
+      var translate = imageWidth - exposeWidth;
+      for (var i = 0; i < imgs.length; i++) {
+        (function(i) {
+          imgs[i].onmouseover = function() {
+            setImagePos(); //重置
+            for (var j = 1; j <= i; j++) {
+              imgs[j].style.left = parseInt(imgs[j].style.left, 10) - translate + 'px';
+            }
+          }
+        })(i);
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div id='root'>
+    <img src="images/door1.png" alt="1080P神器" title="1080P神器" />
+    <img src="images/door2.png" alt="5.5寸4核" title="5.5寸4核" />
+    <img src="images/door3.png" alt="四核5寸" title="四核5寸" />
+    <img src="images/door4.png" alt="5.7寸机皇" title="5.7寸机皇" />
+  </div>
+</body>
+
+</html>

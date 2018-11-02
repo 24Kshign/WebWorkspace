@@ -1,0 +1,35 @@
+.tabBar{
+    width: 600px;
+    height: 50px;
+    background-color: #ffffff;
+    margin: 10px auto;
+}
+
+.tabBar ul {
+    width:510px;
+    margin: 0 auto;
+}
+
+.tabBar ul li {
+    width: 100px;
+    height: 50px;
+    float: left;
+    list-style: none;
+}
+
+.tabBar ul li a{
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    margin: 0 1px;
+    display: block;
+    background-color: #e1e1e1;
+    line-height: 50px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.tabBar ul li a:hover{
+    color: #ffffff;
+    background-color: #f60;
+}

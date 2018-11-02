@@ -1,0 +1,33 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+  height: 50px;
+  border-bottom: 5px solid #f60;
+  padding-left: 30px;
+}
+
+li{
+  float: left;
+  margin-top: 20px;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  height: 30px;
+  width: 120px;
+  line-height: 30px;
+  background-color: #ccc;
+  margin-left: 1px;
+  text-align: center;
+}
+
+.on, a:hover {
+  background-color: #f60;
+  color: #fff;
+}

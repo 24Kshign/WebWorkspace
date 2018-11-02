@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>导航条</title>
+  <link type="text/css" href="css/main.css" rel="stylesheet"></link>
+  <script>
+    //页面加载完再执行以下代码
+    window.onload = function() {
+      var aA = document.getElementsByTagName('a');
+      for (var i = 0; i < aA.length; i++) {
+        aA[i].onmouseover = function() {
+          clearInterval(this.time);
+          var This = this;
+          This.time = setInterval(function() {
+            This.style.width = This.offsetWidth + 8 + "px";
+            if (This.offsetWidth >= 160) {
+              clearInterval(This.time);
+            }
+          }, 30);
+        }
+
+        aA[i].onmouseout = function() {
+          clearInterval(this.time);
+          var This = this;
+          This.time = setInterval(function() {
+            This.style.width = This.offsetWidth - 8 + "px";
+            if (This.offsetWidth <= 120) {
+              This.style.width = "120px";
+              clearInterval(This.time);
+            }
+          }, 30);
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <ul>
+    <li><a class="on" href="#">首   页</a></li>
+    <li><a href="#">新闻快讯</a></li>
+    <li><a href="#">产品展示</a></li>
+    <li><a href="#">售后服务</a></li>
+    <li><a href="#">联系我们</a></li>
+  </ul>
+</body>
+
+</html>

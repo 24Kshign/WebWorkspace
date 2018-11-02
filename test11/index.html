@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue实现TabBar二级列表</title>
+    <link rel="stylesheet" href="style/tab.css" type="text/css">
+    <link rel="stylesheet" href="style/reset.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="root">
+        <ul class="nav">
+            <li v-for="(item,index) in itemList" :key="index">
+                <a href="#">{{item.title}}</a>
+                <ul class="subNav">
+                    <li v-for="(subItem,index) in item.subItemList" :key="index"><a href="#">{{subItem}}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#root",
+            data: {
+                itemList: [{
+                    title: '首页',
+                    subItemList: [
+                        '首页二级菜单',
+                        '首页二级菜单',
+                        '首页二级菜单',
+                        '首页二级菜单',
+                        '首页二级菜单'
+                    ]
+                },
+                {
+                    title: '关于',
+                    subItemList: [
+                        '关于二级菜单',
+                        '关于二级菜单',
+                        '关于二级菜单',
+                        '关于二级菜单',
+                        '关于二级菜单'
+                    ]
+                },
+                {
+                    title: '我的',
+                    subItemList: [
+                        '我的二级菜单',
+                        '我的二级菜单',
+                        '我的二级菜单',
+                        '我的二级菜单',
+                        '我的二级菜单'
+                    ]
+                },
+                {
+                    title: '购物车',
+                    subItemList: [
+                        '购物车二级菜单',
+                        '购物车二级菜单',
+                        '购物车二级菜单',
+                        '购物车二级菜单',
+                        '购物车二级菜单'
+                    ]
+                },
+                {
+                    title: '个人中心',
+                    subItemList: [
+                        '个人中心二级菜单',
+                        '个人中心二级菜单',
+                        '个人中心二级菜单',
+                        '个人中心二级菜单',
+                        '个人中心二级菜单'
+                    ]
+                }
+                ]
+            }
+        })
+    </script>
+
+</body>
+
+</html>

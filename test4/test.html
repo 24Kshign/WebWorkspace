@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>ToDoList</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <div>
+      <input v-model="inputValue" />
+      <button @click="handleSubmit">提交</button>
+    </div>
+    <ul>
+      <todo-item v-for="(item, index) of list" :key="index" :content="item" :index="index" :@delete="handleDelete">
+        {{item}}
+      </todo-item>
+    </ul>
+  </div>
+
+  <script>
+    Vue.component('todo-item', {
+      // 接收外部传进来的参数content
+      props: ['content', 'index'],
+      template: '<li @click="handleClick">{{content}}</li>',
+      methods: {
+        handleClick: function() {
+          this.$emit('delete', this.index);
+        }
+      }
+    })
+
+    new Vue({
+      el: "#root",
+      data: {
+        inputValue: '',
+        list: []
+      },
+      methods: {
+        handleSubmit: function() {
+          if (this.inputValue != '') {
+            this.list.push(this.inputValue);
+            this.input = '';
+          }
+        },
+        handleDelete: function(index) {
+          this.list.splice(index,1);   //根据下标删除list中的内容
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

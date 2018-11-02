@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>仿简书tabBar</title>
+    <link rel="stylesheet" href="style/main.css" type="text/css">
+    <link rel="stylesheet" href="style/reset.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="root" class="tabBar">
+        <a href="#" alt=""><img class="logo" src="images/nav-logo.png" /></a>
+
+        <ul class="nav">
+            <li v-for="(item,index) in itemList" :key="index">
+                <a href="#">{{item.title}}</a>
+                <ul class="subNav">
+                    <li v-for="(subItem,subIndex) in item.subItemList" :key="subIndex">
+                        <a href="#">
+                            <i :class="subItem.subIcon"></i>
+                            <span>{{subItem.subTitle}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <div :class="search">
+            <a href="#"><i class="iconfont icon-search"></i></a>
+            <input type="text" class="searchInput" placeholder="搜索" @focus="inputFocus" @blur="inputBlur" />
+        </div>
+
+        <div class="right">
+
+            <ul class="rightNav">
+                <li>
+                    <a href="#"><i class="iconfont icon-Aa"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">
+                        <img src="images/head.jpg" class="userhead" />
+                        <i class="iconfont icon-arrowdropdown"></i>
+                    </a>
+                    <ul class="dropdownNav">
+                        <li v-for="(item, index) in userList" :key="index">
+                            <a href="#">
+                                <i :class="item.subIcon"></i>
+                                <span>{{item.subTitle}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="write">
+                        <i class="iconfont icon-write"></i>
+                        写文章
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: "#root",
+            data() {
+                return {
+                    itemList: [{
+                        title: '发现',
+                        subItemList: []
+                    },
+                    {
+                        title: '关注',
+                        subItemList: []
+                    },
+                    {
+                        title: '消息',
+                        subItemList: [{
+                            subTitle: '评论',
+                            subIcon: 'iconfont icon-message'
+                        },
+                        {
+                            subTitle: '简信',
+                            subIcon: 'iconfont icon-message'
+                        },
+                        {
+                            subTitle: '投稿请求',
+                            subIcon: 'iconfont icon-message'
+                        },
+                        {
+                            subTitle: '喜欢和赞',
+                            subIcon: 'iconfont icon-message'
+                        },
+                        {
+                            subTitle: '关注',
+                            subIcon: 'iconfont icon-message'
+                        },
+                        {
+                            subTitle: '赞赏和付费',
+                            subIcon: 'iconfont icon-message'
+                        },
+                        {
+                            subTitle: '其他消息',
+                            subIcon: 'iconfont icon-message'
+                        }
+                        ]
+                    }
+                    ],
+                    userList: [
+                        {
+                            subTitle: '我的主页',
+                            subIcon: 'iconfont icon-message'
+                        },
+                        {
+                            subTitle: '收藏的文章',
+                            subIcon: 'iconfont icon-message'
+                        },
+                        {
+                            subTitle: '喜欢的文章',
+                            subIcon: 'iconfont icon-message'
+                        },
+                        {
+                            subTitle: '已购内容',
+                            subIcon: 'iconfont icon-message'
+                        },
+                        {
+                            subTitle: '我的钱包',
+                            subIcon: 'iconfont icon-message'
+                        },
+                        {
+                            subTitle: '设置',
+                            subIcon: 'iconfont icon-message'
+                        },
+                        {
+                            subTitle: '帮助与反馈',
+                            subIcon: 'iconfont icon-message'
+                        },
+                        {
+                            subTitle: '退出',
+                            subIcon: 'iconfont icon-message'
+                        }
+                    ],
+                    search:'search'
+                }
+            },
+            methods: {
+                inputFocus: function() {
+                    this.search = 'searchLong'
+                },
+                inputBlur: function() {
+                    this.search = 'search'
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

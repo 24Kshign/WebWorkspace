@@ -1,0 +1,60 @@
+.tabBar{
+    width: 800px;
+    height: 50px;
+    background-color: #ffffff;
+    margin: 10px auto;
+}
+
+.nav {
+    width:760px;
+    margin: 0 auto;
+}
+
+li {
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.nav li {
+    width: 150px;
+    height: 50px;
+    float: left;
+}
+
+.nav li a{
+    width: 150px;
+    height: 50px;
+    margin: 0 1px;
+    background-color: #e1e1e1;
+    line-height: 50px;
+    color: #000000;
+}
+
+.nav li a:hover{
+    color: #ffffff;
+    background-color: #f60;
+}
+
+.subNav{
+    height: 0;
+    overflow: hidden;
+}
+
+.subNav li a{
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    background-color: #f7f7f7;
+    line-height: 50px;
+    color: #666666;
+}
+
+.subNav li a:hover{
+    color: #ffffff;
+    background-color: #f60;
+}
