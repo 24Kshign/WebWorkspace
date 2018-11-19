@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>仿掘金导航条</title>
+    <link href="../test5/style/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/main.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="root" class="tabBar" @click="handleTabBarClick">
+        <div class="tabBarContent">
+            <a href="#"><img src="https://b-gold-cdn.xitu.io/v3/static/img/logo.a7995ad.svg"></a>
+            <ul class="navLeft">
+                <li v-for="(item, index) in itemList" :key="index" @click="handleAClick(item.title)">
+                    <a :href="item.url" :class="[(currentClick === item.title) ? 'aActive' :'aNormal']">{{item.title}}</a>
+                </li>
+            </ul>
+            <ul class="navRight">
+                <li @click.stop>
+                    <a @click="handleMenuClick" href="#"><img class="userAvater" src="https://avatars.githubusercontent.com/u/12208947?v=3&quot"></a>
+                    <ul class="navRight-menu-group" v-if="isMenuShow">
+                        <div class="navRight-menu-item" v-for="(items, index) in menuList" :key="index">
+                            <li v-for="(subItem, index) in items" :key="index">
+                                <a :href="subItem.url">
+                                    <i :class="subItem.imageUrl"></i>
+                                    {{subItem.title}}
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
+                <li class="subNav" @click="handleAClick('bell')">
+                    <a class="bell" href="#"><i :class="[(currentClick === 'bell') ? 'iconfont icon-bell-selected' :'iconfont icon-bell']"></i></a>
+                </li>
+                <li class="subNav writeArticle">
+                    <div class="more" @click.stop>
+                        <a href="#"><span>写文章</span></a>
+                        <p></p>
+                        <a @click="handleWriteArticle"><i class="iconfont icon-down"></i></a>
+                    </div>
+                    <ul v-if="isShow">
+                        <li><a href="#">发布沸点</a></li>
+                        <li><a href="#">分享链接</a></li>
+                    </ul>
+                </li>
+                <li class="subNav" :class="[isInputFocus ? 'inputSearchFocus' : 'inputSearch']">
+                    <a href="#"><i :class="[isInputFocus ? 'iconfont icon-search-focus' : 'iconfont icon-search']"></i></a>
+                    <input type="text" placeholder="搜索掘金" @focus="inputFocus" @blur="inputBlur">
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#root",
+            data() {
+                return {
+                    menuList: [
+                        [{
+                            title: '写文章',
+                            imageUrl: 'iconfont icon-message',
+                            url: '#'
+                        }, {
+                            title: '草稿',
+                            imageUrl: 'iconfont icon-message',
+                            url: '#'
+                        }],
+                        [{
+                            title: '我的主页',
+                            imageUrl: 'iconfont icon-message',
+                            url: '#'
+                        }, {
+                            title: '我赞过的',
+                            imageUrl: 'iconfont icon-message',
+                            url: '#'
+                        }, {
+                            title: '我的收藏集',
+                            imageUrl: 'iconfont icon-message',
+                            url: '#'
+                        }, {
+                            title: '已购',
+                            imageUrl: 'iconfont icon-message',
+                            url: '#'
+                        }, {
+                            title: '标签管理',
+                            imageUrl: 'iconfont icon-message',
+                            url: '#'
+                        }],
+                        [{
+                            title: '设置',
+                            imageUrl: 'iconfont icon-message',
+                            url: '#'
+                        }, {
+                            title: '关于',
+                            imageUrl: 'iconfont icon-message',
+                            url: '#'
+                        }],
+                        [{
+                            title: '登出',
+                            imageUrl: 'iconfont icon-message',
+                            url: '#'
+                        }]
+                    ],
+                    itemList: [{
+                            title: '首页',
+                            url: 'index.html'
+                        },
+                        {
+                            title: '动态',
+                            url: '#'
+                        },
+                        {
+                            title: '小册',
+                            url: '#'
+                        },
+                        {
+                            title: '开源库',
+                            url: '#'
+                        },
+                        {
+                            title: '活动',
+                            url: '#'
+                        }
+                    ],
+                    currentClick: '首页',
+                    isInputFocus: false,
+                    isShow: false,
+                    isMenuShow: false
+                }
+            },
+            methods: {
+                handleAClick: function (title) {
+                    this.currentClick = title
+                },
+                inputFocus: function () {
+                    this.isInputFocus = true
+                },
+                inputBlur: function () {
+                    this.isInputFocus = false
+                },
+                handleWriteArticle: function () {
+                    this.isShow = !this.isShow
+                    if (this.isMenuShow) {
+                        this.isMenuShow = !this.isMenuShow
+                    }
+                },
+                handleTabBarClick: function () {
+                    if (this.isShow) {
+                        this.isShow = !this.isShow
+                    }
+                    if (this.isMenuShow) {
+                        this.isMenuShow = !this.isMenuShow
+                    }
+                },
+                handleMenuClick: function () {
+                    this.isMenuShow = !this.isMenuShow
+                    if (this.isShow) {
+                        this.isShow = !this.isShow
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
