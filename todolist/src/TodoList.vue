@@ -5,7 +5,7 @@
     <button @click="handleSubmit">提交</button>
   </div>
   <ul>
-    <todo-item v-for="(item, index) of list" :key="index" :content="item" @delete="handleDelete">
+    <todo-item v-for="(item, index) of list" :key="index" :content="item" @delete="handleDelete(index)">
     </todo-item>
   </ul>
 </div>
