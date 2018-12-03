@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>在库车源管理</title>
+    <link href="../test5/style/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/main.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div class="titleBar">
+            <img src="images/icon_back.png" @click="handleBackClick" />
+            <div class="toggleBtn">
+                <a href="#" :class="[isSell ? 'sell-selected' : 'sell']" @click="handleSell">出售中</a>
+                <a href="#" :class="[isSell ? 'underCarriage' : 'underCarriage-selected']" @click="handleUnderCarridge">已下架</a>
+            </div>
+            <a href="#">管理</a>
+        </div>
+        <ul class="tabBarNav">
+            <li v-for="(item, index) in tabItemList" :key="index">
+                <a @click="handleTabClick(item.title)" :class="[(currentClick === item.title) ? 'aSelected' :'aNormal']"
+                    href="#">{{item.title}}<i :class="item.tabIcon"></i></a>
+            </li>
+        </ul>
+        <ul class="contentList">
+            <li v-for="(item, index) in itemList" :key="index">
+                <ul class="contentTop">
+                    <li>
+                        <span>{{item.realPrice}}</span>
+                        <span>{{item.carInfo}}</span>
+                    </li>
+                    <li>
+                        <span>{{item.guidePrice}}</span>
+                        <span>{{item.specification}}</span>
+                    </li>
+                    <li>
+                        <span>{{item.limitPeriod}}</span>
+                        <span>{{item.carColor}}</span>
+                    </li>
+                </ul>
+                <ul class="contentBottom">
+                    <li v-for="(item, index) in subitemList" :key="index">
+                        <a href="#">{{item}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="footer">
+            <li v-for="(item, index) in footerList" :key="index">
+                <a href="#">{{item.title}}<i :class="item.footerIcon"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#root",
+            data() {
+                return {
+                    isSell: true,
+                    currentClick: '最近更新',
+                    footerList: [{
+                            title: '刷新车源',
+                            footerIcon: ''
+                        },
+                        {
+                            title: '发布车源',
+                            footerIcon: ''
+                        },
+                        {
+                            title: '分享车源',
+                            footerIcon: ''
+                        }
+                    ],
+                    itemList: [{
+                            carInfo: '宝马5系 528GT 15款 领先宝马5',
+                            realPrice: '555.73万',
+                            guidePrice: '指导价:668.8万/下399点',
+                            specification: '中规现车',
+                            carColor: '黑／黑',
+                            limitPeriod: '展示有效期剩余：3天'
+                        },
+                        {
+                            carInfo: '宝马5系 528GT 15款 领先宝马5',
+                            realPrice: '555.73万',
+                            guidePrice: '指导价:668.8万/下399点',
+                            specification: '中规现车',
+                            carColor: '黑／黑',
+                            limitPeriod: '展示有效期剩余：3天'
+                        },
+                        {
+                            carInfo: '宝马5系 528GT 15款 领先宝马5',
+                            realPrice: '555.73万',
+                            guidePrice: '指导价:668.8万/下399点',
+                            specification: '中规现车',
+                            carColor: '黑／黑',
+                            limitPeriod: '展示有效期剩余：3天'
+                        },
+                        {
+                            carInfo: '宝马5系 528GT 15款 领先宝马5',
+                            realPrice: '555.73万',
+                            guidePrice: '指导价:668.8万/下399点',
+                            specification: '中规现车',
+                            carColor: '黑／黑',
+                            limitPeriod: '展示有效期剩余：3天'
+                        },
+                        {
+                            carInfo: '宝马5系 528GT 15款 领先宝马5',
+                            realPrice: '555.73万',
+                            guidePrice: '指导价:668.8万/下399点',
+                            specification: '中规现车',
+                            carColor: '黑／黑',
+                            limitPeriod: '展示有效期剩余：3天'
+                        }
+                    ],
+                    subitemList: [
+                        '发同款',
+                        '延期',
+                        '改价',
+                        '下架',
+                    ],
+                    tabItemList: [{
+                            title: '最近更新',
+                            tabIcon: ''
+                        },
+                        {
+                            title: '即将到期',
+                            tabIcon: ''
+                        },
+                        {
+                            title: '筛选',
+                            tabIcon: 'iconfont icon-shaixuan'
+                        }
+                    ]
+                }
+            },
+            methods: {
+                handleBackClick: function () {
+                    alert('返回');
+                },
+                handleSell: function () {
+                    this.isSell = true;
+                },
+                handleUnderCarridge: function () {
+                    this.isSell = false;
+                },
+                handleTabClick: function (itemTitle) {
+                    this.currentClick = itemTitle;
+                }
+            }
+        })
+    </script>
+</body>
+</body>
+
+</html>
