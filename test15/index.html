@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="../test5/style/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/main.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="root">
+        <div class="titleBar">
+            <ul>
+                <li v-for="(item, index) in titleBarList" :key="index">
+                    <a :class="[(currentClickTitle === item.title) ? 'aSelected' :'']" :href="item.linkUrl" @click="handleTitleBar(item.title)">{{item.title}}</a>
+                </li>
+            </ul>
+            <a href="index.html"><img src="http://xfnweb.image.alimmdn.com/desktop/PC_logo_01.png" alt="#"></a>
+        </div>
+    </div>
+    <script src="script/main.js" type="text/javascript"></script>
+</body>
+
+</html>

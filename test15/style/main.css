@@ -1,0 +1,45 @@
+.titleBar {
+    width: 70%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin: 0 auto;
+}
+
+.titleBar img {
+    height: 60px;
+}
+
+.titleBar ul {
+    flex: 1;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.titleBar ul li {
+    float: right;
+    width: 80px;
+    height: 78px;
+    line-height: 78px;
+}
+
+.titleBar ul li a {
+    display: block;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    color: #222;
+}
+
+.titleBar ul li a:hover, .aSelected{
+    border-bottom: 2px #a90202 solid;
+    color: #a90202;
+}
