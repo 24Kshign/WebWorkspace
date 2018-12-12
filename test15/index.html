@@ -8,22 +8,165 @@
     <title>Document</title>
     <link href="../test5/style/reset.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="style/main.css" type="text/css">
+    <link rel="stylesheet" href="style/swiper.min.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
 
     <div id="root">
-        <div class="titleBar">
-            <ul>
-                <li v-for="(item, index) in titleBarList" :key="index">
-                    <a :class="[(currentClickTitle === item.title) ? 'aSelected' :'']" :href="item.linkUrl" @click="handleTitleBar(item.title)">{{item.title}}</a>
+        <div class="top">
+            <div class="titleBar">
+                <ul>
+                    <li v-for="(item, index) in titleBarList" :key="index">
+                        <a :class="[(currentClickTitle === item.title) ? 'aSelected' :'aNormal']" :href="item.linkUrl"
+                            @click="handleTitleBar(item.title)">{{item.title}}</a>
+                    </li>
+                </ul>
+                <a href="index.html"><img src="images/icon_logo.png" alt="#"></a>
+            </div>
+        </div>
+        <div class="swiper-container banner">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide">
+                    <img src="images/icon_carousel_1.png" />
+                </li>
+                <li class="swiper-slide">
+                    <img src="images/icon_carousel_1.png" />
+                </li>
+                <li class="swiper-slide">
+                    <img src="images/icon_carousel_1.png" />
                 </li>
             </ul>
-            <a href="index.html"><img src="http://xfnweb.image.alimmdn.com/desktop/PC_logo_01.png" alt="#"></a>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="content">
+            <p>智能/会计 双重财务解决方案</p>
+            <p style="font-size:20px;font-weight: normal;margin-top: 20px">实时生成专业的三大财务报表、各项余额表/明细表、老板表…</p>
+            <ul class="content-plate">
+                <li>
+                    <div class="content-plate-front">
+                        <img src="images/icon_man.png" />
+                        <p>小番智能版</p>
+                    </div>
+                    <div>
+                        <p class="content-plate-line"></p>
+                        <p>出纳、 老板等非专业财务做账，按场景录入流水，简单易懂。</p>
+                        <p>兼容会计版，可创建会计版，支持项目、往来、账户管理。</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="content-plate-front">
+                        <img src="images/icon_woman.png" />
+                        <p>小番会计版</p>
+                    </div>
+                    <div>
+                        <p class="content-plate-line"></p>
+                        <p>企业已有专职会计，录入凭证自由度高。</p>
+                        <p>支持财务数据迁移，支持对接多模块，配套完善。</p>
+                    </div>
+                </li>
+            </ul>
+
+            <p style="margin-top:100px;">功能介绍</p>
+            <ul class="functionNav">
+                <li v-for="(item, index) in functionList" :key="index">
+                    <ul class="functionSubNav">
+                        <li v-for="(subItem, index) in item" :class="[(currentFlag === subItem.flag) ? 'functionSubNav-image-opacity' :'functionSubNav-image']"
+                            :key="index" @mouseover="mouseenter(subItem.flag)" @mouseout="mouseleave">
+                            <a href="#">
+                                <img :src="subItem.imageUrl" />
+                            </a>
+                            <i class="mask"></i>
+                            <p>{{subItem.desc}}</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p style="margin-top:100px; margin-bottom: 60px;">颠覆传统记账软件 人人都能正确做账</p>
+            <div class="swiper-container swiper">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="images/icon_swipe_1.png" />
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="images/icon_swipe_2.png" />
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="images/icon_swipe_3.png" />
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="images/icon_swipe_4.png" />
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="images/icon_swipe_5.png" />
+                    </li>
+                </ul>
+
+                <div class="swiper-bg">
+                    <img src="images/icon_swipe_bg.png">
+                </div>
+            </div>
+
+            <p style="margin-top:100px;">智能办公 完美体验 最大程度解放您的大脑</p>
+            <ul class="officeNav">
+                <li v-for="(item, index) in officeList" :key="index">
+                    <img :src="item.imageUrl">
+                    <p>{{item.title}}</p>
+                    <i></i>
+                    <p v-html="item.desc"></p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <ul class="footerNav">
+                <li>
+                    <p>联系我们</p>
+                    <ul class="footerSubNav">
+                        <li>0571-28121680</li>
+                        <li>0571-28121680-802(天天)</li>
+                        <li>0571-28121680-803(小新)</li>
+                        <li>0571-28121680-807(奈次)</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>小番部署二维码</p>
+                    <img src="images/icon_qr_code.png" style="margin-top:42px" />
+                </li>
+                <li>
+                    <p>微信交流群</p>
+                    <img src="images/icon_qr_code.png" style="margin-top:42px" />
+                </li>
+            </ul>
+            <p>fannix.com.cn 杭州小番网络科技有限公司- 浙ICP备16026227号-3 | <img src="https://webapp.codoon.com/codoon-welcome-cdn/images/police.3cd90.png" />
+                浙公网安备 33011002103134号</p>
         </div>
     </div>
     <script src="script/main.js" type="text/javascript"></script>
+    <script src="script/swiper.min.js" type="text/javascript"></script>
+    <script>
+        var swiper = new Swiper('.banner', {
+            pagination: {
+                el: '.banner .swiper-pagination',
+            },
+            paginationClickable: true,
+            loop: true,
+            autoplay: true,
+            disableOnInteraction: true,
+        });
+
+        var mySwiper = new Swiper('.swiper', {
+            slidesPerView: 5,
+            loop: true,
+            autoplay:true,
+            disableOnInteraction: true,
+            centeredSlides: true,
+            spaceBetween: 30,
+        });
+    </script>
 </body>
 
 </html>

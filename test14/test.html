@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="../test5/style/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/test.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="root">
+
+        <div :class="imageClass" @mouseover="mouseenter" @mouseout="mouseleave" >
+            <a href="#">
+                <img src="../test15/images/icon_function_2.png"/>
+            </a>
+            <i class="mask"></i>
+            <p>你好啊啊啊</p>
+        </div>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: "#root",
+            data() {
+                return {
+                    imageClass: 'image'
+                }
+            },
+            methods: {
+                mouseenter: function () {
+                    this.imageClass = 'opacityImage'
+                },
+                mouseleave: function () {
+                    this.imageClass = 'image'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

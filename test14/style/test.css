@@ -1,0 +1,65 @@
+.image,
+.opacityImage {
+    width: 350px;
+    height: 222px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+}
+
+.image a,
+.opacityImage a {
+    width: 350px;
+    height: 222px;
+    position: relative;
+    display: block;
+}
+
+.opacityImage p,
+.image p {
+    position: absolute;
+    top: 95px;
+    color: #fff;
+    left: 130px;
+}
+
+.opacityImage img,
+.image img {
+    border-radius: 12px;
+}
+
+.opacityImage img {
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
+    background-size: 150%;
+    background-position: center;
+}
+
+.image .mask,
+.opacityImage .mask {
+    display: block;
+    width: 350px;
+    position: absolute;
+    height: 222px;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    border-radius: 12px;
+}
+
+.opacityImage p {
+    opacity: 1.0;
+}
+
+.image p {
+    opacity: 0;
+}
+
+.image .mask {
+    opacity: 0;
+}
+
+.opacityImage .mask {
+    opacity: 0.3;
+}

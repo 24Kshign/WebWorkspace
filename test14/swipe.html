@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="../test5/style/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style/swipe.css" type="text/css">
+    <link rel="stylesheet" href="../test15/style/swiper.min.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div class="swiper-container">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide">
+                    <img src="../test15/images/icon_swipe_1.png" />
+                </li>
+                <li class="swiper-slide">
+                    <img src="../test15/images/icon_swipe_2.png" />
+                </li>
+                <li class="swiper-slide">
+                    <img src="../test15/images/icon_swipe_3.png" />
+                </li>
+                <li class="swiper-slide">
+                    <img src="../test15/images/icon_swipe_4.png" />
+                </li>
+                <li class="swiper-slide">
+                    <img src="../test15/images/icon_swipe_5.png" />
+                </li>
+            </ul>
+
+            <div class="swiper-bg">
+                <img src="../test15/images/icon_swipe_bg.png">
+            </div>
+        </div>
+    </div>
+
+    <script src="../test15/script/swiper.min.js" type="text/javascript"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 5,
+            loop: true,
+            autoplay:true,
+            disableOnInteraction: true,
+            centeredSlides: true,
+            spaceBetween: 30,
+        });
+    </script>
+    <!-- <script>
+        new Vue({
+            el: "#root",
+            data() {
+                return {
+                    middleFlag: 0,
+                }
+            },
+            computed: {
+                imageList: function () {
+                    var mList = new Array()
+                    for (var i = 0; i < 5; i++) {
+                        mList.push('../test15/images/icon_function_' + ((i + this.middleFlag) % 5 + 1) +
+                            '.png')
+                    }
+                    return mList
+                }
+            },
+            methods: {
+                play: function () {
+                    setInterval(this.autoPlay, 2000)
+                },
+                autoPlay: function () {
+                    if (this.middleFlag === 5) {
+                        middleFlag = 0;
+                    }
+                    this.middleFlag++;
+                }
+            },
+            created() {
+                this.play()
+            }
+        })
+    </script> -->
+</body>
+
+</html>
